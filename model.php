@@ -11,13 +11,10 @@ class model {
         }
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
-        $statement->bindParam(':email', $this->email);
-        $statement->bindParam(':fname', $this->fname);
-        $statement->bindParam(':lname', $this->lname);
-        $statement->bindParam(':phone', $this->phone);
-        $statement->bindParam(':birthday', $this->birthday);
-        $statement->bindParam(':gender', $this->gender);
-        $statement->bindParam(':password', $this->password);
+        $array = get_object_vars($this);
+        foreach (array_flip($array) as $key=>$value){
+            $statement->bindParam(":$value", $this->$value);
+        }
         $statement->execute();
 
     }

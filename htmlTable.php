@@ -2,7 +2,16 @@
 
 class htmlTable{
     public static function genarateTableFromMultiArray($arr){
-        $tableGen = '<table cellpadding="5" cellspacing="5">';
+        $tableGen = '<table border="1"cellpadding="10">';
+
+        foreach($arr as $row => $innerArray){
+            $tableGen .= '<tr>';
+            foreach($innerArray as $innerRow => $value){
+                $tableGen .= '<th>' . $innerRow . '</th>';
+            }
+            $tableGen .= '</tr>';
+            break;
+        }
         foreach($arr as $row => $innerArray){
             $tableGen .= '<tr>';
             foreach($innerArray as $innerRow => $value){
@@ -14,11 +23,17 @@ class htmlTable{
         return $tableGen;
     }
     public static function generateTableFromOneRecord($innerArray){
-        $tableGen = '<table cellpadding="5" cellspacing="5"><tr>';
+        $tableGen = '<table border="1" cellpadding="10"><tr>';
 
-            foreach($innerArray as $value){
-                $tableGen .= '<td>' . $value . '</td>';
-            }
+        $tableGen .= '<tr>';
+        foreach($innerArray as $innerRow => $value){
+            $tableGen .= '<th>' . $innerRow . '</th>';
+        }
+        $tableGen .= '</tr>';
+
+        foreach($innerArray as $value){
+            $tableGen .= '<td>' . $value . '</td>';
+        }
 
         $tableGen .= '</tr></table><hr>';
         return $tableGen;

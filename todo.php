@@ -8,10 +8,10 @@ class todo extends model {
     public $duedate;
     public $message;
     public $isdone;
-    public function __construct()
-    {
-        $this->tableName = 'todos';
+    public static function getTablename(){
 
+        $tableName='todos';
+        return $tableName;
     }
 }
 
