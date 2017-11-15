@@ -20,17 +20,28 @@ class Manage {
 
 spl_autoload_register(array('Manage', 'autoload'));
 
-// this would be the method to put in the index page for accounts
-//$records = accounts::findAll();
-//print_r($records);
-// this would be the method to put in the index page for todos
-//$records = todos::findAll();
-//print_r($records);
-//this code is used to get one record and is used for showing one record or updating one record
-//$record = todos::findOne(2);
+//printing all function outputs
 
-$record = accounts::findOne(1);
-print_r($record);
+$form = '<form method="post" enctype="multipart/form-data"><center>';
+$form .= '<h1>Select All Records</h1>';
+$records = accounts::findAll();
+$tableGen = htmlTable::genarateTableFromMultiArray($records);
+$form .= $tableGen;
+
+$form .= '<h1>Select One Record</h1>';
+$records = accounts::findOne(1);
+$tableGen = htmlTable::generateTableFromOneRecord($records);
+$form .= $tableGen;
+
+$form .= '</center></form> ';
+print($form);
+
+/* $records = todos::findAll();
+ $tableGen = htmlTable::genarateTableFromMultiArray($records);
+ $form .= 'Add one record: <input class="button" type="submit" value="Add Record" name="addRow2">';
+ $form .= $tableGen;*/
+
+
 //this is used to save the record or update it (if you know how to make update work and insert)
 // $record->save();
 //$record = accounts::findOne(1);
