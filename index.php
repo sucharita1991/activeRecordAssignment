@@ -39,8 +39,8 @@ $form .= $tableGen;
 $form .= '<h2>Insert One Record</h2>';
 //insert a new record
 $record = new account();
-$record->email="bbbb@njit.edu";
-$record->fname="bbb";
+$record->email="test@njit.edu";
+$record->fname="test";
 $record->lname="cccc";
 $record->phone="4444";
 $record->birthday="00-00-0000";
@@ -54,7 +54,7 @@ $form .= $tableGen;
 
 $form .= '<h2>Update One Record</h2>';
 //update a new record
-$id=18;
+$id=21;
 $record = new account();
 $record->id=$id;
 $record->lname="xxxx";
@@ -67,7 +67,7 @@ $form .= $tableGen;
 
 $form .= '<h2>Delete One Record</h2>';
 $record= new account();
-$id=18;
+$id=21;
 $record->delete($id);
 $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
 $form .= '<h3>After Delete</h3>';
@@ -105,7 +105,7 @@ $form .= $tableGen;
 
 $form .= '<h2>Update One Record</h2>';
 //update a new record
-$id=10;
+$id=11;
 $record = new todo();
 $record->id=$id;
 $record->owneremail="shirsath@njit.edu";
@@ -118,7 +118,7 @@ $form .= $tableGen;
 
 $form .= '<h2>Delete One Record</h2>';
 $record= new todo();
-$id=10;
+$id=11;
 $record->delete($id);
 $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
 $form .= '<h3>After Delete</h3>';
