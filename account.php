@@ -9,6 +9,7 @@ class account extends model {
     public $birthday;
     public $gender;
     public $password;
+    protected static $modelName = 'account';
     public static function getTablename(){
 
         $tableName='accounts';

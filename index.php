@@ -31,7 +31,7 @@ class main
         //printing all function outputs
 
         $form = '<form method="post" enctype="multipart/form-data">';
-        $form .= '<h1>Table: Accounts</h1>';
+        /*$form .= '<h1>Table: Accounts</h1>';
 
         //select all records
         $form .= '<h2>Select All Records</h2>';
@@ -50,7 +50,7 @@ class main
         //insert one record
         $form .= '<h2>Insert One Record</h2>';
         $record = new account();
-        $record->email="test@njit.edu";
+        $record->email="test27@njit.edu";
         $record->fname="test";
         $record->lname="cccc";
         $record->phone="4444";
@@ -65,10 +65,10 @@ class main
 
         //update one record
         $form .= '<h2>Update One Record</h2>';
-        $id=21;
+        $id=25;
         $record = new account();
         $record->id=$id;
-        $record->lname="xxxx";
+        $record->lname="xxxx25";
         $record->gender="yyyy";
         $record->save();
         $records = accounts::findAll();
@@ -79,13 +79,13 @@ class main
         //delete one record
         $form .= '<h2>Delete One Record</h2>';
         $record= new account();
-        $id=21;
+        $id=25;
         $record->delete($id);
         $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
         $form .= '<h3>After Delete</h3>';
         $records = accounts::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
-        $form .= $tableGen;
+        $form .= $tableGen;*/
 
         $form .= '<h1>Table: Todos</h1>';
 
@@ -106,7 +106,7 @@ class main
         //insert one record
         $form .= '<h2>Insert One Record</h2>';
         $record = new todo();
-        $record->owneremail="sucharita@njit.edu";
+        $record->owneremail="sucharita9@njit.edu";
         $record->ownerid=11;
         $record->createddate="00-00-0000";
         $record->duedate="11-11-1111";
@@ -120,7 +120,7 @@ class main
 
         //update one record
         $form .= '<h2>Update One Record</h2>';
-        $id=11;
+        $id=12;
         $record = new todo();
         $record->id=$id;
         $record->owneremail="shirsath@njit.edu";
@@ -134,7 +134,7 @@ class main
         //delete one record
         $form .= '<h2>Delete One Record</h2>';
         $record= new todo();
-        $id=11;
+        $id=12;
         $record->delete($id);
         $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
         $form .= '<h3>After Delete</h3>';

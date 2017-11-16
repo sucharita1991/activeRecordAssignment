@@ -8,6 +8,7 @@ class todo extends model {
     public $duedate;
     public $message;
     public $isdone;
+    protected static $modelName = 'todo';
     public static function getTablename(){
 
         $tableName='todos';

@@ -9,6 +9,7 @@ class model {
         } else {
            $sql = $this->insert();
         }
+        echo $sql;
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
         $array = get_object_vars($this);
@@ -19,7 +20,8 @@ class model {
 
     }
     private function insert() {
-        $modelName=get_called_class();
+
+        $modelName=static::$modelName;
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
         $columnString = implode(',', array_flip($array));
@@ -29,7 +31,8 @@ class model {
     }
 
     private function update($id) {
-        $modelName=get_called_class();
+
+        $modelName=static::$modelName;
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
 
@@ -47,9 +50,10 @@ class model {
     }
     public function delete($id) {
         $db = dbConn::getConnection();
-        $modelName=get_called_class();
+        $modelName=static::$modelName;
         $tableName = $modelName::getTablename();
         $sql = 'DELETE FROM '.$tableName.' WHERE id='.$id;
+        echo $sql;
         $statement = $db->prepare($sql);
         $statement->execute();
     }
