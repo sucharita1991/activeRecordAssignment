@@ -98,7 +98,7 @@ class main
 
         //select one record
         $form .= '<h2>Select One Record</h2>';
-        $id=7;
+        $id=2;
         $records = todos::findOne($id);
         $tableGen = htmlTable::generateTableFromOneRecord($records);
         $form .= '<h3>Record retrieved with id: '.$id.'</h3>';
