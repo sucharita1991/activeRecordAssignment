@@ -1,15 +1,14 @@
 <?php
 
-class model {
+abstract class model {
 
     public function save()
     {
         if ($this->id != '') {
-            $sql = $this->update($this->id);
+            $sql = $this->update();
         } else {
            $sql = $this->insert();
         }
-        echo $sql;
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
         $array = get_object_vars($this);
@@ -17,6 +16,8 @@ class model {
             $statement->bindParam(":$value", $this->$value);
         }
         $statement->execute();
+        $id = $db->lastInsertId();
+        return $id;
 
     }
     private function insert() {
@@ -30,7 +31,7 @@ class model {
         return $sql;
     }
 
-    private function update($id) {
+    private function update() {
 
         $modelName=static::$modelName;
         $tableName = $modelName::getTablename();
@@ -44,16 +45,15 @@ class model {
                 $comma = ", ";
             }
         }
-        $sql .= ' WHERE id='.$id;
+        $sql .= ' WHERE id='.$this->id;
         return $sql;
 
     }
-    public function delete($id) {
+    public function delete() {
         $db = dbConn::getConnection();
         $modelName=static::$modelName;
         $tableName = $modelName::getTablename();
-        $sql = 'DELETE FROM '.$tableName.' WHERE id='.$id;
-        echo $sql;
+        $sql = 'DELETE FROM '.$tableName.' WHERE id='.$this->id;
         $statement = $db->prepare($sql);
         $statement->execute();
     }

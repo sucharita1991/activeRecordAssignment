@@ -31,7 +31,7 @@ class main
         //printing all function outputs
 
         $form = '<form method="post" enctype="multipart/form-data">';
-        /*$form .= '<h1>Table: Accounts</h1>';
+        $form .= '<h1>Table: Accounts</h1>';
 
         //select all records
         $form .= '<h2>Select All Records</h2>';
@@ -50,14 +50,14 @@ class main
         //insert one record
         $form .= '<h2>Insert One Record</h2>';
         $record = new account();
-        $record->email="test27@njit.edu";
+        $record->email="sd39@njit.edu";
         $record->fname="test";
         $record->lname="cccc";
         $record->phone="4444";
         $record->birthday="00-00-0000";
         $record->gender="male";
         $record->password="12345";
-        $record->save();
+        $lastInsertedId=$record->save();
         $records = accounts::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
         $form .= '<h3>After Inserting</h3>';
@@ -65,27 +65,28 @@ class main
 
         //update one record
         $form .= '<h2>Update One Record</h2>';
-        $id=25;
+        $records = accounts::findOne($lastInsertedId);
         $record = new account();
-        $record->id=$id;
-        $record->lname="xxxx25";
+        $record->id=$records->id;
+        $record->lname="yyyy";
         $record->gender="yyyy";
         $record->save();
+        $form .= '<h3>Record update with id: '.$records->id.'</h3>';
         $records = accounts::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
-        $form .= '<h3>Record update with id: '.$id.'</h3>';
         $form .= $tableGen;
 
         //delete one record
         $form .= '<h2>Delete One Record</h2>';
+        $records = accounts::findOne($lastInsertedId);
         $record= new account();
-        $id=25;
-        $record->delete($id);
-        $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
+        $record->id=$records->id;
+        $record->delete();
+        $form .= '<h3>Record with id: '.$records->id.' is deleted</h3>';
         $form .= '<h3>After Delete</h3>';
         $records = accounts::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
-        $form .= $tableGen;*/
+        $form .= $tableGen;
 
         $form .= '<h1>Table: Todos</h1>';
 
@@ -106,13 +107,13 @@ class main
         //insert one record
         $form .= '<h2>Insert One Record</h2>';
         $record = new todo();
-        $record->owneremail="sucharita9@njit.edu";
-        $record->ownerid=11;
+        $record->owneremail="bhumi@njit.edu";
+        $record->ownerid=12;
         $record->createddate="00-00-0000";
         $record->duedate="11-11-1111";
-        $record->message="test";
+        $record->message="testmessagebhumi";
         $record->isdone=1;
-        $record->save();
+        $lastInsertedId=$record->save();
         $records = todos::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
         $form .= '<h3>After Inserting</h3>';
@@ -120,23 +121,24 @@ class main
 
         //update one record
         $form .= '<h2>Update One Record</h2>';
-        $id=12;
+        $records = todos::findOne($lastInsertedId);
         $record = new todo();
-        $record->id=$id;
-        $record->owneremail="shirsath@njit.edu";
-        $record->message="fema";
+        $record->id=$records->id;
+        $record->owneremail="bhumi11@njit.edu";
+        $record->message="female";
         $record->save();
+        $form .= '<h3>Record update with id: '.$records->id.'</h3>';
         $records = todos::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
-        $form .= '<h3>Record update with id: '.$id.'</h3>';
         $form .= $tableGen;
 
         //delete one record
         $form .= '<h2>Delete One Record</h2>';
+        $records = todos::findOne($lastInsertedId);
         $record= new todo();
-        $id=12;
-        $record->delete($id);
-        $form .= '<h3>Record with id: '.$id.' is deleted</h3>';
+        $record->id=$records->id;
+        $record->delete();
+        $form .= '<h3>Record with id: '.$records->id.' is deleted</h3>';
         $form .= '<h3>After Delete</h3>';
         $records = todos::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
