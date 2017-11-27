@@ -15,8 +15,8 @@ class Manage {
     public static function autoload($class) {
         //you can put any file name or directory here
        // include __NAMESPACE__.$class . '.php';
-        //include str_replace('\\', '/', $class). '.php';
-       include $class . '.php';
+        include str_replace('\\', '/', $class). '.php';
+      // include $class . '.php';
        /* $file_name = str_replace("\\", DIRECTORY_SEPARATOR, $class) . '.php';
         include $file_name;*/
     }
