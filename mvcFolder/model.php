@@ -1,5 +1,7 @@
 <?php
 
+namespace mvcFolder;
+
 abstract class model {
 
     public function save()
@@ -7,7 +9,7 @@ abstract class model {
         if ($this->id != '') {
             $sql = $this->update();
         } else {
-           $sql = $this->insert();
+            $sql = $this->insert();
         }
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
