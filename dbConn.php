@@ -1,5 +1,7 @@
 <?php
 
+namespace MyProject\mvc;
+
 class dbConn{
     //variable to hold connection object.
     protected static $db;

@@ -1,5 +1,7 @@
 <?php
 
+namespace MyProject\components;
+
 class account extends model {
     public $id;
     public $email;

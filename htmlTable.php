@@ -1,5 +1,7 @@
 <?php
 
+//namespace MyProject\mvcName;
+
 class htmlTable{
     public static function genarateTableFromMultiArray($arr){
         $tableGen = '<table border="1"cellpadding="10">';

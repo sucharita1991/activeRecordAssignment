@@ -1,5 +1,7 @@
 <?php
 
+namespace MyProject\components;
+
 class todo extends model {
     public $id;
     public $owneremail;
