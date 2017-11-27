@@ -1,8 +1,6 @@
 <?php
 
-namespace MyProject\components;
-
-class account extends model {
+class account extends mvcFolder\model {
     public $id;
     public $email;
     public $fname;

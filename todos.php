@@ -1,8 +1,6 @@
 <?php
 
-namespace MyProject\components;
-
-class todos extends collection {
+class todos extends mvcFolder\collection {
     protected static $modelName = 'todo';
 }
 

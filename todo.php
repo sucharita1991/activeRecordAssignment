@@ -1,8 +1,6 @@
 <?php
 
-namespace MyProject\components;
-
-class todo extends model {
+class todo extends mvcFolder\model {
     public $id;
     public $owneremail;
     public $ownerid;

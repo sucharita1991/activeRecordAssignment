@@ -24,12 +24,11 @@ define('CONNECTION', 'sql1.njit.edu');
 
 //spl_autoload_register(array('Manage', 'autoload'));
 
-//include 'model.php';
-//include 'database.php';
+include 'model.php';
 include 'collection.php';
-//include "account.php";
-//include "todos.php";
-//include "todo.php";
+include "account.php";
+include "todos.php";
+include "todo.php";
 include 'accounts.php';
 include "htmlTable.php";
 include 'dbConn.php';
@@ -54,17 +53,17 @@ class main
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
         $form .= $tableGen;
 
-        /*//select one record
+        //select one record
         $form .= '<h2>Select One Record</h2>';
         $id=2;
-        $records = MyProject\components\accounts::findOne($id);
-        $tableGen = MyProject\mvcName\htmlTable::generateTableFromOneRecord($records);
+        $records = accounts::findOne($id);
+        $tableGen = htmlTable::generateTableFromOneRecord($records);
         $form .= '<h3>Record retrieved with id: '.$id.'</h3>';
         $form .= $tableGen;
 
         //insert one record
         $form .= '<h2>Insert One Record</h2>';
-        $record = new MyProject\components\account();
+        $record = new account();
         $record->email="sd39@njit.edu";
         $record->fname="test";
         $record->lname="cccc";
@@ -73,37 +72,37 @@ class main
         $record->gender="male";
         $record->password="12345";
         $lastInsertedId=$record->save();
-        $records = MyProject\components\accounts::findAll();
-        $tableGen = MyProject\mvcName\htmlTable::genarateTableFromMultiArray($records);
+        $records =accounts::findAll();
+        $tableGen = htmlTable::genarateTableFromMultiArray($records);
         $form .= '<h3>After Inserting</h3>';
         $form .= $tableGen;
 
         //update one record
         $form .= '<h2>Update One Record</h2>';
-        $records = MyProject\components\accounts::findOne($lastInsertedId);
-        $record = new MyProject\components\account();
+        $records = accounts::findOne($lastInsertedId);
+        $record = new account();
         $record->id=$records->id;
         $record->lname="yyyy";
         $record->gender="yyyy";
         $record->save();
         $form .= '<h3>Record update with id: '.$records->id.'</h3>';
-        $records = MyProject\components\accounts::findAll();
-        $tableGen = MyProject\mvcName\htmlTable::genarateTableFromMultiArray($records);
+        $records = accounts::findAll();
+        $tableGen = htmlTable::genarateTableFromMultiArray($records);
         $form .= $tableGen;
 
         //delete one record
         $form .= '<h2>Delete One Record</h2>';
-        $records = MyProject\components\accounts::findOne($lastInsertedId);
-        $record= new MyProject\components\account();
+        $records = accounts::findOne($lastInsertedId);
+        $record= new account();
         $record->id=$records->id;
         $record->delete();
         $form .= '<h3>Record with id: '.$records->id.' is deleted</h3>';
         $form .= '<h3>After Delete</h3>';
-        $records = MyProject\components\accounts::findAll();
-        $tableGen = MyProject\mvcName\htmlTable::genarateTableFromMultiArray($records);
-        $form .= $tableGen;*/
+        $records = accounts::findAll();
+        $tableGen = htmlTable::genarateTableFromMultiArray($records);
+        $form .= $tableGen;
 
-        /*$form .= '<h1>Table: Todos</h1>';
+        $form .= '<h1>Table: Todos</h1>';
 
         //select all records
         $form .= '<h2>Select All Records</h2>';
@@ -157,7 +156,7 @@ class main
         $form .= '<h3>After Delete</h3>';
         $records = todos::findAll();
         $tableGen = htmlTable::genarateTableFromMultiArray($records);
-        $form .= $tableGen;*/
+        $form .= $tableGen;
 
         $form .= '</form> ';
         print($form);
