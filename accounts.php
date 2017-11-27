@@ -1,8 +1,8 @@
 <?php
 
-namespace MyProject\subClass;
+//namespace MyProject\subClass;
 
-class accounts extends \MyProject\activeRecord\collection {
+class accounts extends mvcFolder\collection {
     protected static $modelName = 'account';
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace mvcFolder;
+namespace MyProject\activeRecord;
 
 abstract class collection {
     static public function create() {
@@ -14,7 +14,7 @@ abstract class collection {
         $statement = $db->prepare($sql);
         $statement->execute();
         $class = static::$modelName;
-        $statement->setFetchMode(\PDO::FETCH_CLASS, $class);
+        $statement->setFetchMode(PDO::FETCH_CLASS, $class);
         $recordsSet =  $statement->fetchAll();
         return $recordsSet;
     }
@@ -25,7 +25,7 @@ abstract class collection {
         $statement = $db->prepare($sql);
         $statement->execute();
         $class = static::$modelName;
-        $statement->setFetchMode(\PDO::FETCH_CLASS, $class);
+        $statement->setFetchMode(PDO::FETCH_CLASS, $class);
         $recordsSet =  $statement->fetchAll();
         return $recordsSet[0];
     }
