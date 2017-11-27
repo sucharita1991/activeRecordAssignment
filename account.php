@@ -1,6 +1,6 @@
 <?php
 
-class account extends mvcFolder\model {
+final class account extends mvcFolder\model {
     public $id;
     public $email;
     public $fname;

@@ -1,8 +1,8 @@
 <?php
 
-//namespace MyProject\subClass;
+//namespace subClass;
 
-class accounts extends mvcFolder\collection {
+final class accounts extends \mvcFolder\collection {
     protected static $modelName = 'account';
 }
 

@@ -11,27 +11,29 @@ define('PASSWORD', 'ZOm1EN5l3');
 define('CONNECTION', 'sql1.njit.edu');
 
 //Autuloader class
-/*class Manage {
+class Manage {
     public static function autoload($class) {
         //you can put any file name or directory here
        // include __NAMESPACE__.$class . '.php';
+        echo str_replace('\\', '/', $class). '.php</br>';
         include str_replace('\\', '/', $class). '.php';
+        //include str_replace('\\', '/', $class). '.php';
       // include $class . '.php';
        /* $file_name = str_replace("\\", DIRECTORY_SEPARATOR, $class) . '.php';
         include $file_name;*/
-  //  }
-//}*/
+    }
+}
 
-//spl_autoload_register(array('Manage', 'autoload'));
+spl_autoload_register(array('Manage', 'autoload'));
 
-include 'model.php';
+/*include 'model.php';
 include 'collection.php';
 include "account.php";
 include "todos.php";
 include "todo.php";
 include 'accounts.php';
 include "htmlTable.php";
-include 'dbConn.php';
+include 'dbConn.php';*/
 
 
 //instantiate the main object
